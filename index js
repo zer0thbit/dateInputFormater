@@ -1,0 +1,13 @@
+const dateInputFormat = (dateValue: string) => {
+      const reg = /^\d+$/;
+      const updatedValue = dateValue.split('').filter(str => reg.test(str)).join('');
+      const valueLength = updatedValue.length;
+      if(reg.test(updatedValue)){
+        if (valueLength > 1 && valueLength < 4) {
+          dateValue = updatedValue.substring(0, 2) + '.' + updatedValue.substring(2, 3);
+        } else if (valueLength >= 4) {
+          dateValue = updatedValue.substring(0, 2) + '.' + updatedValue.substring(2, 4) + '.' + updatedValue.substring(4, valueLength);
+          dateValue = dateValue.substring(0, 10)
+        }
+      }
+}
